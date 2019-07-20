@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.com.db1</groupId>
+	<artifactId>db1go-pvai</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>db1go</name>
+	<description>DB1 GO - Paranavaí - Turma 01</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.6.RELEASE</version>
+		<relativePath />
+	</parent>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/java/br.com.db1.db1go/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+
+
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<goals>
+						<goal>repackage</goal>
+					</goals>
+
+				</configuration>
+			</plugin>
+		</plugins>
+
+
+
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.firebase</groupId>
+			<artifactId>firebase-admin</artifactId>
+			<version>6.8.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.5</version>
+		</dependency>
+	</dependencies>
+
+	<profile>
+		<id>dev</id>
+		<properties>
+			<activatedProperties>application-dev</activatedProperties>
+		</properties>
+		<activation>
+			<activeByDefault>true</activeByDefault>
+		</activation>
+	</profile>
+	<profile>
+		<id>prod</id>
+		<properties>
+			<activatedProperties>prod</activatedProperties>
+		</properties>
+	</profile>
+</project>
